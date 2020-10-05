@@ -59,16 +59,16 @@ instance Num Nat where
     | x <= 0 = Zero
     | otherwise = Succ (fromInteger (x -1))
 
-instance Ord Nat where
-  Zero < Zero = False
-  Zero < Succ n = True
-  Succ m < Zero = False
-  Succ m < Succ n = (m < n)
+-- instance Ord Nat where
+--   Zero < Zero = False
+--   Zero < Succ n = True
+--   Succ m < Zero = False
+--   Succ m < Succ n = (m < n)
 
-divMod :: Nat -> Nat -> (Nat, Nat)
-divMod x y =
-  if x < y
-    then (Zero, x)
-    else (Succ q, r)
-  where
-    (q, r) = divMod (x - y) y
+-- divMod :: Nat -> Nat -> (Nat, Nat)
+-- divMod x y =
+--   if x < y
+--     then (Zero, x)
+--     else (Succ q, r)
+--   where
+--     (q, r) = divMod ((Num x) - (Num y))  (Num y)
