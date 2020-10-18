@@ -29,35 +29,35 @@ exerciseE x = fst (until unit (shrink x) (bound x))
   where
     unit (m, n) = m + 1 == n
 
-data Nat = Zero | Succ Nat
+-- data Nat = Zero | Succ !Nat
 
-instance Eq Nat where
-  Zero == Zero = True
-  Zero == Succ n = False
-  Succ m == Zero = False
-  Succ m == Succ n = (m == n)
+-- instance Eq Nat where
+--   Zero == Zero = True
+--   Zero == Succ n = False
+--   Succ m == Zero = False
+--   Succ m == Succ n = (m == n)
 
-instance Show Nat where
-  show Zero = "Zero"
-  show (Succ Zero) = "Succ Zero"
-  show (Succ (Succ n)) = "Succ (" ++ show (Succ n) ++ ")"
+-- instance Show Nat where
+--   show Zero = "Zero"
+--   show (Succ Zero) = "Succ Zero"
+--   show (Succ (Succ n)) = "Succ (" ++ show (Succ n) ++ ")"
 
-instance Num Nat where
-  m + Zero = m
-  m + Succ n = Succ (m + n)
-  m * Zero = Zero
-  m * (Succ n) = m * n + m
-  abs n = n
-  signum Zero = Zero
-  signum (Succ n) = Succ Zero
+-- instance Num Nat where
+--   m + Zero = m
+--   m + Succ n = Succ (m + n)
+--   m * Zero = Zero
+--   m * (Succ n) = m * n + m
+--   abs n = n
+--   signum Zero = Zero
+--   signum (Succ n) = Succ Zero
 
-  m - Zero = m
-  Zero - Succ n = Zero
-  Succ m - Succ n = m - n
+--   m - Zero = m
+--   Zero - Succ n = Zero
+--   Succ m - Succ n = m - n
 
-  fromInteger x
-    | x <= 0 = Zero
-    | otherwise = Succ (fromInteger (x -1))
+--   fromInteger x
+--     | x <= 0 = Zero
+--     | otherwise = Succ (fromInteger (x -1))
 
 -- instance Ord Nat where
 --   Zero < Zero = False
@@ -71,4 +71,11 @@ instance Num Nat where
 --     then (Zero, x)
 --     else (Succ q, r)
 --   where
---     (q, r) = divMod ((Num x) - (Num y))  (Num y)
+--     (q, r) = divMod (x - y) y
+
+exerciseF :: Float -> Float
+exerciseF x = until goodenough improve x
+  where
+    goodenough y = abs (y * y - x) < eps * x
+    eps = 0.000001
+    improve y = (y + x / y) / 2
