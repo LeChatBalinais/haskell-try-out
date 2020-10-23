@@ -1,0 +1,5 @@
+ghc gpwh/lesson_1/first_prog.hs  -odir "./output" -o "./output/email" -hidir "./output"
+
+ghci
+    :q exit
+    :l load module
