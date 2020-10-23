@@ -1,4 +1,4 @@
-module ChapterThree (exerciseA, exerciseB, exerciseC, exerciseD, exerciseE) where
+module ChapterThree (exerciseA, exerciseB, exerciseC, exerciseD, exerciseE, exerciseF) where
 
 type Interval = (Integer, Integer)
 

@@ -1,10 +1,12 @@
-import CIN (addSum, valid)
-import ChapterThree (exerciseA, exerciseB, exerciseD, exerciseE)
-import Exponent (exponen)
-import Modernize (modernize)
-import Palindrome (palindrome)
-import ShowDate (showDate)
-import Song (song)
+-- import CIN (addSum, valid)
+-- import ChapterThree (exerciseE)
+import ChapterThree (exerciseF)
+
+-- import Exponent (exponen)
+-- import Modernize (modernize)
+-- import Palindrome (palindrome)
+-- import ShowDate (showDate)
+-- import Song (song)
 
 type Text = [Char]
 
@@ -54,7 +56,7 @@ main :: IO ()
 -- main = print (exerciseB (((subtract 5 2) 3)))
 
 -- main = print (exerciseB (subtract 5 2) 3)
-main = print (show (exerciseE (145.3)))
+main = print (show (exerciseF (144)))
 
 -- main = print (map (show . double . double) ([1, 2] ++ [3, 4]))
 -- main = print (song 4)
